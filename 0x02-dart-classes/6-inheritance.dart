@@ -1,30 +1,19 @@
 import '6-password.dart';
 
-class User extends Password {
-  int id = 0;
-  String name = '';
-  int age = 0;
-  double height = 0.00;
+class User {
+  int id;
+  String name;
+  int age;
+  double height;
+  String user_password;
 
   User({
     required this.id,
     required this.name,
     required this.age,
     required this.height,
-    String? user_password,
-  }) : super(password: user_password ?? '');
-
-  String? get user_password => password.isEmpty ? null : password;
-
-  set user_password(String? pwd) {
-    password = pwd ?? '';
-  }
-
-  bool isPasswordValid() {
-    return isValid();
-  }
-
-  bool get pwdValid => isValid();
+    required this.user_password,
+  });
 
   Map<String, dynamic> toJson() {
     return ({
@@ -32,7 +21,6 @@ class User extends Password {
       'name': this.name,
       'age': this.age,
       'height': this.height,
-      'user_password': this.user_password
     });
   }
 
@@ -48,6 +36,11 @@ class User extends Password {
 
   @override
   String toString() {
-    return 'User(id : ${id} ,name: ${name}, age: ${age}, height: ${height}, Password: ${isPasswordValid()})';
+    return 'User(id : ${id} ,name: ${name}, age: ${age}, height: ${height}, Password: ${isPwdValid()})';
+  }
+
+  bool isPwdValid() {
+    final pwd = Password(password: user_password);
+    return pwd.isValid();
   }
 }
