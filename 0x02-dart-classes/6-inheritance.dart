@@ -32,6 +32,7 @@ class User extends Password {
       'name': this.name,
       'age': this.age,
       'height': this.height,
+      'user_password': this.user_password
     });
   }
 
@@ -41,6 +42,7 @@ class User extends Password {
       name: userJson['name'],
       age: userJson['age'],
       height: userJson['height'],
+      user_password: userJson['user_password'],
     );
   }
 
