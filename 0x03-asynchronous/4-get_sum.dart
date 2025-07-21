@@ -9,7 +9,7 @@ Future<dynamic> calculateTotal() async {
 
     final useOrder = await fetchUserOrders(userId);
     var userProduct = jsonDecode(useOrder);
-    num totalPrice = 0;
+    double totalPrice = 0;
 
     for (var product in userProduct) {
       var price = jsonDecode(await fetchProductPrice(product));
