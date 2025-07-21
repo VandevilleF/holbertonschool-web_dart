@@ -17,7 +17,6 @@ Future<dynamic> calculateTotal() async {
     }
     return totalPrice;
     } catch (error) {
-    print(error);
     return -1;
   }
 }
